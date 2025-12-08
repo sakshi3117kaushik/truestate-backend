@@ -1,37 +1,35 @@
 import mongoose from "mongoose";
 
-const saleSchema = new mongoose.Schema(
-  {
-    quantity: {
-      type: Number,
-      required: true,
-      min: 1,
-    },
-    pricePerUnit: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-    discountPercent: {
-      type: Number,
-      default: 0,
-      min: 0,
-      max: 100,
-    },
-    totalAmount: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-    finalAmount: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-  },
-  { timestamps: true }
-);
+const saleSchema = new mongoose.Schema({
+  customerId: String,
+  customerName: String,
+  phoneNumber: String,
+  gender: String,
+  age: Number,
+  customerRegion: String,
+  customerType: String,
 
-const Sale = mongoose.model("Sale", saleSchema);
+  productId: String,
+  productName: String,
+  brand: String,
+  productCategory: String,
+  tags: [String],
 
-export default Sale;
+  quantity: Number,
+  pricePerUnit: Number,
+  discountPercentage: Number,
+  totalAmount: Number,
+  finalAmount: Number,
+
+  date: Date,
+  paymentMethod: String,
+  orderStatus: String,
+  deliveryType: String,
+  storeId: String,
+  storeLocation: String,
+
+  salespersonId: String,
+  employeeName: String,
+});
+
+export default mongoose.model("Sale", saleSchema);
