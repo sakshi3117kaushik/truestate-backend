@@ -2,7 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
+import connectDB from "./utils/db.js";
 import cors from "cors";
+import salesRoutes from "./routes/saleRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -13,12 +15,10 @@ app.use(cors({
 }));
 
 // Connect MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+connectDB();
 
   app.use("/api/auth", authRoutes);
+  app.use("/api/sales", salesRoutes);
 // Routes
 app.get("/", (req, res) => {
   res.send("API is running...");
