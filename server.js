@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
+    "*",
     "https://truestate-frontend-2xay7xecy-sakshi3117kaushiks-projects.vercel.app"
   ],
   credentials: true
