@@ -14,6 +14,8 @@ logs
 *.log
 logs/*.log
 
+# 2. Add it to .gitignore so you don't re-add it by accident
+echo "data/truestate_assignment_dataset.csv" >> .gitignore
 # Output folders
 dist/
 build/
