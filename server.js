@@ -9,14 +9,16 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "*",
-    "https://truestate-frontend-2xay7xecy-sakshi3117kaushiks-projects.vercel.app"
-  ],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: "https://truestate-frontend-jet.vercel.app", // your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
+
+// Or allow all origins (for testing only)
+app.use(cors());
 
 
 // Connect MongoDB
