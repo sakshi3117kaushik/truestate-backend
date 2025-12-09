@@ -32,4 +32,6 @@ const saleSchema = new mongoose.Schema({
   employeeName: String,
 });
 
+// add compound unique index (adjust to your accurate uniqueness logic)
+saleSchema.index({ customerId: 1, productId: 1, date: 1 }, { unique: true, sparse: true });
 export default mongoose.model("Sale", saleSchema);
