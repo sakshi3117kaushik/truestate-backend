@@ -16,7 +16,9 @@ app.use(cors({
 
 // Connect MongoDB
 connectDB();
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
   app.use("/api/auth", authRoutes);
   app.use("/api/sales", salesRoutes);
 // Routes
