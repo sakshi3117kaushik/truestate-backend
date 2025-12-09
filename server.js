@@ -10,9 +10,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173", // frontend URL
-  credentials: true,
+  origin: [
+    "http://localhost:5173",
+    "https://truestate-frontend-2xay7xecy-sakshi3117kaushiks-projects.vercel.app"
+  ],
+  credentials: true
 }));
+
 
 // Connect MongoDB
 connectDB();
